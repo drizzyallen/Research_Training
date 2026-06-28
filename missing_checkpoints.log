@@ -1,0 +1,240 @@
+
+===== Running VGG16.ipynb =====
+
+--- VGG16.ipynb cell 1 ---
+Using images from: /data/ramialle/datasets2/Dataset_BUSI_with_GT_Clean/images-20260602T203626Z-3-001/images
+Using device: cuda
+CUDA devices: 7
+
+--- VGG16.ipynb cell 3 ---
+Training samples: 517
+Testing samples: 130
+Example training row: {'Image': 'benign (218).png', 'Label': 1, 'path': PosixPath('/data/ramialle/datasets2/Dataset_BUSI_with_GT_Clean/images-20260602T203626Z-3-001/images/benign (218).png'), 'class_name': 'benign'}
+Example testing row: {'Image': 'malignant (30).png', 'Label': 0, 'path': PosixPath('/data/ramialle/datasets2/Dataset_BUSI_with_GT_Clean/images-20260602T203626Z-3-001/images/malignant (30).png'), 'class_name': 'malignant'}
+
+--- VGG16.ipynb cell 5 ---
+Train class counts: {'malignant': 171, 'benign': 346}
+Test class counts: {'malignant': 39, 'benign': 91}
+Train: all classification images exist; PyTorch will resize images to 224x224.
+Test: all classification images exist; PyTorch will resize images to 224x224.
+
+--- VGG16.ipynb cell 7 ---
+Image batch shape: (16, 3, 224, 224)
+Label batch shape: (16,)
+First sampled batch class counts: {'malignant': 12, 'benign': 4}
+
+--- VGG16.ipynb cell 9 ---
+Model: VGG16 with ImageNet pretrained weights
+Classifier head: Sequential(
+  (0): Dropout(p=0.25, inplace=False)
+  (1): Linear(in_features=25088, out_features=256, bias=True)
+  (2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, bias=True, track_running_stats=True)
+  (3): ReLU()
+  (4): Dropout(p=0.15, inplace=False)
+  (5): Linear(in_features=256, out_features=2, bias=True)
+)
+Total parameters: 21,138,498
+Trainable parameters before fine-tuning: 6,423,810
+Class weights: {'malignant': 1.89, 'benign': 0.747}
+Malignant weight multiplier: 1.25
+Optimizer: AdamW
+
+--- VGG16.ipynb cell 11 ---
+Epoch 01/80 | train loss 0.4692, acc 0.7331, macro F1 0.7279 | test loss 0.6204, acc 0.7308, macro F1 0.7145
+Epoch 02/80 | train loss 0.4515, acc 0.7679, macro F1 0.7650 | test loss 0.6151, acc 0.6923, macro F1 0.6863
+Epoch 03/80 | train loss 0.3365, acc 0.8337, macro F1 0.8316 | test loss 0.5268, acc 0.8154, macro F1 0.7833
+Epoch 04/80 | train loss 0.2992, acc 0.8607, macro F1 0.8591 | test loss 0.5325, acc 0.7923, macro F1 0.7761
+Epoch 05/80 | train loss 0.3185, acc 0.8588, macro F1 0.8577 | test loss 0.5323, acc 0.7692, macro F1 0.7523
+Fine-tuning started: trainable parameters now 19,403,010
+Epoch 06/80 | train loss 0.2931, acc 0.8801, macro F1 0.8797 | test loss 0.5581, acc 0.8231, macro F1 0.7909
+Epoch 07/80 | train loss 0.2341, acc 0.9323, macro F1 0.9322 | test loss 0.5490, acc 0.8923, macro F1 0.8718
+Epoch 08/80 | train loss 0.2440, acc 0.9130, macro F1 0.9130 | test loss 0.5328, acc 0.8615, macro F1 0.8397
+Epoch 09/80 | train loss 0.2260, acc 0.9284, macro F1 0.9284 | test loss 0.5099, acc 0.8385, macro F1 0.8165
+Epoch 10/80 | train loss 0.1986, acc 0.9478, macro F1 0.9477 | test loss 0.5777, acc 0.8692, macro F1 0.8432
+Epoch 11/80 | train loss 0.2193, acc 0.9420, macro F1 0.9419 | test loss 0.5619, acc 0.8615, macro F1 0.8375
+Epoch 12/80 | train loss 0.1779, acc 0.9691, macro F1 0.9690 | test loss 0.6345, acc 0.8615, macro F1 0.8241
+Epoch 13/80 | train loss 0.1836, acc 0.9555, macro F1 0.9555 | test loss 0.5405, acc 0.8615, macro F1 0.8375
+Epoch 14/80 | train loss 0.2057, acc 0.9594, macro F1 0.9593 | test loss 0.5326, acc 0.8462, macro F1 0.8219
+Epoch 15/80 | train loss 0.1627, acc 0.9807, macro F1 0.9807 | test loss 0.5822, acc 0.8923, macro F1 0.8655
+Epoch 16/80 | train loss 0.1641, acc 0.9787, macro F1 0.9787 | test loss 0.5428, acc 0.8923, macro F1 0.8718
+Epoch 17/80 | train loss 0.1580, acc 0.9768, macro F1 0.9768 | test loss 0.5368, acc 0.9000, macro F1 0.8801
+Epoch 18/80 | train loss 0.1943, acc 0.9594, macro F1 0.9594 | test loss 0.5364, acc 0.8923, macro F1 0.8718
+Epoch 19/80 | train loss 0.1622, acc 0.9768, macro F1 0.9768 | test loss 0.5182, acc 0.8692, macro F1 0.8476
+Epoch 20/80 | train loss 0.1586, acc 0.9826, macro F1 0.9826 | test loss 0.5789, acc 0.8769, macro F1 0.8436
+Epoch 21/80 | train loss 0.1419, acc 0.9845, macro F1 0.9845 | test loss 0.5265, acc 0.8769, macro F1 0.8513
+Epoch 22/80 | train loss 0.1464, acc 0.9903, macro F1 0.9903 | test loss 0.5308, acc 0.8846, macro F1 0.8595
+Epoch 23/80 | train loss 0.1668, acc 0.9749, macro F1 0.9749 | test loss 0.5530, acc 0.8846, macro F1 0.8572
+Epoch 24/80 | train loss 0.1445, acc 0.9884, macro F1 0.9883 | test loss 0.5532, acc 0.8692, macro F1 0.8353
+Epoch 25/80 | train loss 0.1528, acc 0.9787, macro F1 0.9787 | test loss 0.5166, acc 0.8769, macro F1 0.8513
+Epoch 26/80 | train loss 0.1475, acc 0.9807, macro F1 0.9806 | test loss 0.5435, acc 0.8769, macro F1 0.8463
+Epoch 27/80 | train loss 0.1523, acc 0.9845, macro F1 0.9845 | test loss 0.5456, acc 0.8923, macro F1 0.8678
+Epoch 28/80 | train loss 0.1540, acc 0.9884, macro F1 0.9884 | test loss 0.5375, acc 0.8923, macro F1 0.8678
+Epoch 29/80 | train loss 0.1676, acc 0.9768, macro F1 0.9768 | test loss 0.5832, acc 0.8692, macro F1 0.8323
+Epoch 30/80 | train loss 0.1594, acc 0.9768, macro F1 0.9767 | test loss 0.5044, acc 0.8846, macro F1 0.8636
+Epoch 31/80 | train loss 0.1538, acc 0.9826, macro F1 0.9824 | test loss 0.5489, acc 0.8769, macro F1 0.8463
+Epoch 32/80 | train loss 0.1610, acc 0.9749, macro F1 0.9748 | test loss 0.5280, acc 0.8923, macro F1 0.8699
+Early stopping at epoch 32. Best epoch was 17.
+Best epoch by testing Macro F1: 17 with Macro F1 0.8801
+
+--- VGG16.ipynb cell 13 ---
+
+--- VGG16.ipynb cell 15 ---
+Default argmax Macro F1: 0.8801
+Best benign-probability threshold: 0.50
+Threshold-tuned Macro F1: 0.8801
+
+Test accuracy: 0.9000
+
+Confusion matrix rows=true, columns=predicted
+Labels: ['malignant', 'benign']
+[[32  7]
+ [ 6 85]]
+
+Per-class metrics:
+malignant  precision=0.8421 recall=0.8205 f1=0.8312
+benign     precision=0.9239 recall=0.9341 f1=0.9290
+
+Macro F1 score: 0.8801
+
+--- VGG16.ipynb cell 17 ---
+VGG16.ipynb:cell-17:13: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+
+--- VGG16.ipynb cell 19 ---
+Saved VGG16 checkpoint to: model_checkpoints/vgg16_best.pth
+
+===== Finished VGG16.ipynb =====
+
+===== Running ResNet50.ipynb =====
+
+--- ResNet50.ipynb cell 2 ---
+Using images from: /data/ramialle/datasets2/Dataset_BUSI_with_GT_Clean/images-20260602T203626Z-3-001/images
+Using device: cuda
+CUDA devices: 7
+
+--- ResNet50.ipynb cell 4 ---
+Training samples: 517
+Testing samples: 130
+Example training row: {'Image': 'benign (218).png', 'Label': 1, 'path': PosixPath('/data/ramialle/datasets2/Dataset_BUSI_with_GT_Clean/images-20260602T203626Z-3-001/images/benign (218).png'), 'class_name': 'benign'}
+Example testing row: {'Image': 'malignant (30).png', 'Label': 0, 'path': PosixPath('/data/ramialle/datasets2/Dataset_BUSI_with_GT_Clean/images-20260602T203626Z-3-001/images/malignant (30).png'), 'class_name': 'malignant'}
+
+--- ResNet50.ipynb cell 6 ---
+Train class counts: {'malignant': 171, 'benign': 346}
+Test class counts: {'malignant': 39, 'benign': 91}
+Train: all classification images exist; PyTorch will resize images to 224x224.
+Test: all classification images exist; PyTorch will resize images to 224x224.
+
+--- ResNet50.ipynb cell 8 ---
+Image batch shape: (16, 3, 224, 224)
+Label batch shape: (16,)
+First sampled batch class counts: {'malignant': 12, 'benign': 4}
+
+--- ResNet50.ipynb cell 10 ---
+Model: ResNet50 with ImageNet pretrained weights
+Classifier head: Sequential(
+  (0): Dropout(p=0.25, inplace=False)
+  (1): Linear(in_features=2048, out_features=256, bias=True)
+  (2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, bias=True, track_running_stats=True)
+  (3): ReLU()
+  (4): Dropout(p=0.15, inplace=False)
+  (5): Linear(in_features=256, out_features=2, bias=True)
+)
+Total parameters: 24,033,602
+Trainable parameters before fine-tuning: 525,570
+Class weights: {'malignant': 1.89, 'benign': 0.747}
+Malignant weight multiplier: 1.25
+Optimizer: AdamW
+
+--- ResNet50.ipynb cell 12 ---
+Epoch 01/80 | train loss 0.5538, acc 0.6402, macro F1 0.6254 | test loss 0.6477, acc 0.7538, macro F1 0.6814
+Epoch 02/80 | train loss 0.4727, acc 0.6886, macro F1 0.6654 | test loss 0.5592, acc 0.6615, macro F1 0.6595
+Epoch 03/80 | train loss 0.4571, acc 0.6983, macro F1 0.6853 | test loss 0.5201, acc 0.7231, macro F1 0.7027
+Epoch 04/80 | train loss 0.4877, acc 0.7157, macro F1 0.7087 | test loss 0.5567, acc 0.6769, macro F1 0.6655
+Epoch 05/80 | train loss 0.4527, acc 0.7427, macro F1 0.7305 | test loss 0.5494, acc 0.7231, macro F1 0.7027
+Fine-tuning started: trainable parameters now 22,588,674
+Epoch 06/80 | train loss 0.4626, acc 0.7195, macro F1 0.7127 | test loss 0.5325, acc 0.7615, macro F1 0.7405
+Epoch 07/80 | train loss 0.3740, acc 0.7795, macro F1 0.7721 | test loss 0.4978, acc 0.7538, macro F1 0.7334
+Epoch 08/80 | train loss 0.3613, acc 0.7950, macro F1 0.7898 | test loss 0.5198, acc 0.7538, macro F1 0.7419
+Epoch 09/80 | train loss 0.3585, acc 0.8027, macro F1 0.7964 | test loss 0.5143, acc 0.8077, macro F1 0.7788
+Epoch 10/80 | train loss 0.4094, acc 0.7834, macro F1 0.7779 | test loss 0.5246, acc 0.7615, macro F1 0.7472
+Epoch 11/80 | train loss 0.3677, acc 0.7872, macro F1 0.7834 | test loss 0.5081, acc 0.8154, macro F1 0.7890
+Epoch 12/80 | train loss 0.3410, acc 0.8375, macro F1 0.8359 | test loss 0.5299, acc 0.7385, macro F1 0.7276
+Epoch 13/80 | train loss 0.3618, acc 0.7969, macro F1 0.7937 | test loss 0.4820, acc 0.8154, macro F1 0.7939
+Epoch 14/80 | train loss 0.3593, acc 0.8221, macro F1 0.8178 | test loss 0.4772, acc 0.8000, macro F1 0.7767
+Epoch 15/80 | train loss 0.3559, acc 0.8259, macro F1 0.8241 | test loss 0.5090, acc 0.8231, macro F1 0.7878
+Epoch 16/80 | train loss 0.3472, acc 0.8240, macro F1 0.8228 | test loss 0.5142, acc 0.7692, macro F1 0.7543
+Epoch 17/80 | train loss 0.3505, acc 0.8356, macro F1 0.8347 | test loss 0.5140, acc 0.8231, macro F1 0.7938
+Epoch 18/80 | train loss 0.3276, acc 0.8414, macro F1 0.8408 | test loss 0.4772, acc 0.8000, macro F1 0.7741
+Epoch 19/80 | train loss 0.3316, acc 0.8665, macro F1 0.8650 | test loss 0.5022, acc 0.8231, macro F1 0.7845
+Epoch 20/80 | train loss 0.3206, acc 0.8317, macro F1 0.8272 | test loss 0.5499, acc 0.8154, macro F1 0.7833
+Epoch 21/80 | train loss 0.3284, acc 0.8433, macro F1 0.8404 | test loss 0.4730, acc 0.7769, macro F1 0.7549
+Epoch 22/80 | train loss 0.2859, acc 0.8704, macro F1 0.8658 | test loss 0.4614, acc 0.7923, macro F1 0.7740
+Epoch 23/80 | train loss 0.2884, acc 0.8743, macro F1 0.8703 | test loss 0.4994, acc 0.8154, macro F1 0.7833
+Epoch 24/80 | train loss 0.3329, acc 0.8356, macro F1 0.8342 | test loss 0.4671, acc 0.7769, macro F1 0.7523
+Epoch 25/80 | train loss 0.3002, acc 0.8569, macro F1 0.8563 | test loss 0.4638, acc 0.7846, macro F1 0.7595
+Epoch 26/80 | train loss 0.3324, acc 0.8414, macro F1 0.8394 | test loss 0.4625, acc 0.8538, macro F1 0.8247
+Epoch 27/80 | train loss 0.3127, acc 0.8723, macro F1 0.8719 | test loss 0.4567, acc 0.8000, macro F1 0.7741
+Epoch 28/80 | train loss 0.2885, acc 0.8704, macro F1 0.8697 | test loss 0.4691, acc 0.8077, macro F1 0.7815
+Epoch 29/80 | train loss 0.2826, acc 0.8781, macro F1 0.8772 | test loss 0.5076, acc 0.8462, macro F1 0.8111
+Epoch 30/80 | train loss 0.3066, acc 0.8704, macro F1 0.8700 | test loss 0.4612, acc 0.8000, macro F1 0.7684
+Epoch 31/80 | train loss 0.2967, acc 0.8859, macro F1 0.8843 | test loss 0.4891, acc 0.7769, macro F1 0.7466
+Epoch 32/80 | train loss 0.3193, acc 0.8298, macro F1 0.8296 | test loss 0.4519, acc 0.8385, macro F1 0.8165
+Epoch 33/80 | train loss 0.3346, acc 0.8182, macro F1 0.8167 | test loss 0.4635, acc 0.8308, macro F1 0.8014
+Epoch 34/80 | train loss 0.3165, acc 0.8414, macro F1 0.8378 | test loss 0.4937, acc 0.8154, macro F1 0.7862
+Epoch 35/80 | train loss 0.2969, acc 0.8665, macro F1 0.8664 | test loss 0.4444, acc 0.8462, macro F1 0.8241
+Epoch 36/80 | train loss 0.2744, acc 0.8878, macro F1 0.8866 | test loss 0.4755, acc 0.8615, macro F1 0.8375
+Epoch 37/80 | train loss 0.2992, acc 0.8723, macro F1 0.8712 | test loss 0.4895, acc 0.8385, macro F1 0.8091
+Epoch 38/80 | train loss 0.3058, acc 0.8665, macro F1 0.8664 | test loss 0.4686, acc 0.7615, macro F1 0.7380
+Epoch 39/80 | train loss 0.3132, acc 0.8569, macro F1 0.8564 | test loss 0.4790, acc 0.8077, macro F1 0.7758
+Epoch 40/80 | train loss 0.3292, acc 0.8395, macro F1 0.8391 | test loss 0.4406, acc 0.8154, macro F1 0.7915
+Epoch 41/80 | train loss 0.3131, acc 0.8530, macro F1 0.8525 | test loss 0.4742, acc 0.8231, macro F1 0.7938
+Epoch 42/80 | train loss 0.3034, acc 0.8627, macro F1 0.8612 | test loss 0.4783, acc 0.8154, macro F1 0.7802
+Epoch 43/80 | train loss 0.2988, acc 0.8762, macro F1 0.8753 | test loss 0.4752, acc 0.8077, macro F1 0.7758
+Epoch 44/80 | train loss 0.2909, acc 0.8685, macro F1 0.8673 | test loss 0.4916, acc 0.7923, macro F1 0.7640
+Epoch 45/80 | train loss 0.3027, acc 0.8646, macro F1 0.8639 | test loss 0.4578, acc 0.8231, macro F1 0.7965
+Epoch 46/80 | train loss 0.2894, acc 0.8839, macro F1 0.8833 | test loss 0.4646, acc 0.8077, macro F1 0.7788
+Epoch 47/80 | train loss 0.2862, acc 0.8820, macro F1 0.8814 | test loss 0.4524, acc 0.8000, macro F1 0.7767
+Epoch 48/80 | train loss 0.2915, acc 0.8859, macro F1 0.8849 | test loss 0.4405, acc 0.8692, macro F1 0.8476
+Epoch 49/80 | train loss 0.3111, acc 0.8723, macro F1 0.8715 | test loss 0.4666, acc 0.8231, macro F1 0.7909
+Epoch 50/80 | train loss 0.3005, acc 0.8646, macro F1 0.8634 | test loss 0.4793, acc 0.8385, macro F1 0.8091
+Epoch 51/80 | train loss 0.3038, acc 0.8685, macro F1 0.8681 | test loss 0.4826, acc 0.8308, macro F1 0.7985
+Epoch 52/80 | train loss 0.3199, acc 0.8588, macro F1 0.8581 | test loss 0.4740, acc 0.8154, macro F1 0.7862
+Epoch 53/80 | train loss 0.2737, acc 0.8839, macro F1 0.8824 | test loss 0.4838, acc 0.8154, macro F1 0.7833
+Epoch 54/80 | train loss 0.2935, acc 0.8665, macro F1 0.8655 | test loss 0.5114, acc 0.8231, macro F1 0.7909
+Epoch 55/80 | train loss 0.2825, acc 0.8723, macro F1 0.8717 | test loss 0.4383, acc 0.8154, macro F1 0.7939
+Epoch 56/80 | train loss 0.2934, acc 0.8743, macro F1 0.8732 | test loss 0.4653, acc 0.8154, macro F1 0.7862
+Epoch 57/80 | train loss 0.2810, acc 0.8897, macro F1 0.8880 | test loss 0.5490, acc 0.8385, macro F1 0.8000
+Epoch 58/80 | train loss 0.2709, acc 0.8897, macro F1 0.8890 | test loss 0.4607, acc 0.8615, macro F1 0.8352
+Epoch 59/80 | train loss 0.3104, acc 0.8472, macro F1 0.8450 | test loss 0.4919, acc 0.8462, macro F1 0.8194
+Epoch 60/80 | train loss 0.2850, acc 0.8878, macro F1 0.8863 | test loss 0.4790, acc 0.8077, macro F1 0.7758
+Epoch 61/80 | train loss 0.3009, acc 0.8607, macro F1 0.8604 | test loss 0.4530, acc 0.8538, macro F1 0.8273
+Epoch 62/80 | train loss 0.3186, acc 0.8453, macro F1 0.8436 | test loss 0.4648, acc 0.8462, macro F1 0.8241
+Epoch 63/80 | train loss 0.3095, acc 0.8607, macro F1 0.8605 | test loss 0.4528, acc 0.8154, macro F1 0.7915
+Early stopping at epoch 63. Best epoch was 48.
+Best epoch by testing Macro F1: 48 with Macro F1 0.8476
+
+--- ResNet50.ipynb cell 14 ---
+
+--- ResNet50.ipynb cell 16 ---
+Default argmax Macro F1: 0.8476
+Best benign-probability threshold: 0.49
+Threshold-tuned Macro F1: 0.8556
+
+Test accuracy: 0.8769
+
+Confusion matrix rows=true, columns=predicted
+Labels: ['malignant', 'benign']
+[[32  7]
+ [ 9 82]]
+
+Per-class metrics:
+malignant  precision=0.7805 recall=0.8205 f1=0.8000
+benign     precision=0.9213 recall=0.9011 f1=0.9111
+
+Macro F1 score: 0.8556
+
+--- ResNet50.ipynb cell 18 ---
+
+--- ResNet50.ipynb cell 20 ---
+Saved ResNet50 checkpoint to: model_checkpoints/resnet50_best.pth
+
+===== Finished ResNet50.ipynb =====
