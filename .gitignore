@@ -5,3 +5,5 @@ run_training.py
 training_nohup.log
 training_nohup.pid
 __pycache__/
+.vscode/
+vgg16_gradcam_outputs/
