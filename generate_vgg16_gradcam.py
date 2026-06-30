@@ -185,10 +185,10 @@ class GradCAM:
 
 
 def colorize_cam(cam):
-    # Lightweight heatmap: black -> red -> yellow -> white.
-    red = np.clip(3.0 * cam, 0, 1)
-    green = np.clip(3.0 * cam - 1.0, 0, 1)
-    blue = np.clip(3.0 * cam - 2.0, 0, 1)
+    # Full-color importance map: blue/cyan/green/yellow/red from least to most important.
+    red = np.clip(1.5 * cam - 0.5, 0, 1)
+    green = np.clip(1.5 - np.abs(3.0 * cam - 1.5), 0, 1)
+    blue = np.clip(1.0 - 1.5 * cam, 0, 1)
     heatmap = np.stack([red, green, blue], axis=-1)
     return (heatmap * 255).astype(np.uint8)
 
